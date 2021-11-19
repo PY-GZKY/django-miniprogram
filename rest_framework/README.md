@@ -1,7 +1,38 @@
-# REST framework tutorial
+# REST framework
 
-Source code for the [Django REST framework tutorial][tut].
+##  Install
+```
+pip install -r requirements.txt
+```
 
-[tut]: http://www.django-rest-framework.org/tutorial/1-serialization
+## Usage
 
-[![Deploy](https://www.herokucdn.com/deploy/button.svg)](https://heroku.com/deploy)
+### Makemigrations 
+
+```shell
+python manage.py makemigrations
+python manage.py migrate
+```
+
+### Create Superuser
+```shell
+python manage.py createsuperuser
+```
+
+### Restore
+```shell
+./restore.sh
+```
+
+### Start Django
+```shell
+python manage.py runserver 127.0.0.1:8000
+```
+
+### Django Admin
+```shell
+
+```
+## License
+
+[MIT]()
