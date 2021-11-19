@@ -10,9 +10,7 @@ schema_view = get_schema_view(title=API_TITLE)
 
 urlpatterns = [
     url(r'^', include('snippets.urls')),
-    # path('admin/', admin.site.urls),
     url(r'^admin/', admin.site.urls),
-    # url(r'^admin/', include('admin.site.urls')),
     url(r'^api-auth/', include('rest_framework.urls', namespace='rest_framework')),
     url(r'^schema/$', schema_view),
     url(r'^docs/', include_docs_urls(title=API_TITLE, description=API_DESCRIPTION))

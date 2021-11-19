@@ -1,14 +1,12 @@
 from django.contrib.auth.models import User
-from rest_framework import permissions, renderers, viewsets, generics
+from rest_framework import permissions, viewsets
+from rest_framework import renderers
 from rest_framework.decorators import action
 from rest_framework.response import Response
 
-from snippets.models import Snippet
+from snippets.models import Snippet, Entitie
 from snippets.permissions import IsOwnerOrReadOnly
-from snippets.serializers import SnippetSerializer, UserSerializer
-from rest_framework import renderers
-from rest_framework.response import Response
-
+from snippets.serializers import SnippetSerializer, UserSerializer, EntitieSerializer
 
 
 class SnippetViewSet(viewsets.ModelViewSet):
@@ -22,7 +20,7 @@ class SnippetViewSet(viewsets.ModelViewSet):
     serializer_class = SnippetSerializer
     permission_classes = (
         permissions.IsAuthenticatedOrReadOnly,
-        IsOwnerOrReadOnly, )
+        IsOwnerOrReadOnly,)
 
     @action(detail=True, renderer_classes=[renderers.StaticHTMLRenderer])
     def highlight(self, request, *args, **kwargs):
@@ -39,3 +37,11 @@ class UserViewSet(viewsets.ReadOnlyModelViewSet):
     """
     queryset = User.objects.all()
     serializer_class = UserSerializer
+
+
+class EntitieViewSet(viewsets.ReadOnlyModelViewSet):
+    """
+    This viewset automatically provides `list` and `detail` actions.
+    """
+    queryset = Entitie.objects.all()
+    serializer_class = EntitieSerializer

@@ -1,0 +1,17 @@
+[
+  {
+    "model": "snippets.entitie",
+    "pk": 1,
+    "fields": {
+      "id": 5,
+      "header": "科罗拉多的冬天",
+      "original_header": "Welcome Winter in Colorado",
+      "description": "摄影师 Niki Csányi，Grace Ban 与 Neil Britto，开着敞篷版揽胜极光带你探索科罗拉多的山脉。",
+      "original_description": "Explore the Colorado mountains in the Range Rover Evoque Convertible with photographers Niki Csányi, Grace Ban and Neil Britto.",
+      "video": "https://resources.ninghao.net/landrover/welcome-winter-in-colorado-480.mp4",
+      "image": "https://resources.ninghao.net/landrover/welcome-winter-in-colorado-480.jpg",
+      "duration_raw": 79,
+      "duration": "01:19"
+    }
+  }
+]

@@ -23,7 +23,7 @@ class Snippet(models.Model):
     highlighted = models.TextField()
 
     class Meta:
-        ordering = ('created', )
+        ordering = ('created',)
         verbose_name = 'Snippet'
         verbose_name_plural = verbose_name
 
@@ -39,3 +39,19 @@ class Snippet(models.Model):
             style=self.style, linenos=linenos, full=True, **options)
         self.highlighted = highlight(self.code, lexer, formatter)
         super(Snippet, self).save(*args, **kwargs)
+
+
+class Entitie(models.Model):
+    id = models.IntegerField(primary_key=True)
+    header = models.CharField(max_length=100, blank=True, default='')
+    original_header = models.CharField(max_length=100, blank=True, default='')
+    description = models.CharField(max_length=100, blank=True, default='')
+    original_description = models.CharField(max_length=100, blank=True, default='')
+    video = models.CharField(max_length=100, blank=True, default='')
+    image = models.CharField(max_length=100, blank=True, default='')
+    duration_raw = models.IntegerField()
+    duration = models.CharField(max_length=100, blank=True, default='')
+
+    class Meta:
+        verbose_name = 'Entitie'
+        verbose_name_plural = verbose_name
