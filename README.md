@@ -1,2 +1,2 @@
-# ck-miniprogram
-ck-miniprogram
+# django-miniprogram
+django-miniprogram
