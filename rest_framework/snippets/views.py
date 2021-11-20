@@ -1,12 +1,19 @@
 from django.contrib.auth.models import User
+from django.views.generic import View
 from rest_framework import permissions, viewsets
 from rest_framework import renderers
 from rest_framework.decorators import action
 from rest_framework.response import Response
 
-from snippets.models import Snippet, Entitie
+from snippets.models import Snippet, Entitie, Site
 from snippets.permissions import IsOwnerOrReadOnly
-from snippets.serializers import SnippetSerializer, UserSerializer, EntitieSerializer
+from snippets.serializers import SnippetSerializer, UserSerializer, EntitieSerializer, SiteSerializer
+from tutorial import settings
+
+
+class GlobalViewSet(viewsets.ModelViewSet):
+    queryset = Site.objects.all()
+    serializer_class = SiteSerializer
 
 
 class SnippetViewSet(viewsets.ModelViewSet):

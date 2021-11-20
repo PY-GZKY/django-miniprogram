@@ -1,7 +1,14 @@
 from django.contrib.auth.models import User
 from rest_framework import serializers
 
-from snippets.models import Snippet, Entitie
+from snippets.models import Snippet, Entitie, Site
+
+
+class SiteSerializer(serializers.HyperlinkedModelSerializer):
+    class Meta:
+        model = Site
+        fields = ('site_name', 'site_year', 'site_title', 'type_chinese', 'type_english', 'home_title',
+                  'my_mail', 'site_keywords', 'site_desc', 'domain_url', 'site_avatar', 'about_name', 'about_desc')
 
 
 class SnippetSerializer(serializers.HyperlinkedModelSerializer):

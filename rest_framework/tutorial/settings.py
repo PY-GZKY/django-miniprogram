@@ -11,6 +11,7 @@ https://docs.djangoproject.com/en/1.11/ref/settings/
 """
 
 import os
+
 import dj_database_url
 
 ENVIRONMENT = os.getenv('ENVIRONMENT', 'development')
@@ -32,7 +33,7 @@ ALLOWED_HOSTS = ['*']
 # Application definition
 
 INSTALLED_APPS = [
-    'simpleui',  # 后台
+    'simpleui',  # simpleui
     'import_export',
     'django.contrib.admin',
     'django.contrib.auth',
@@ -134,6 +135,22 @@ REST_FRAMEWORK = {
     'DEFAULT_SCHEMA_CLASS': 'rest_framework.schemas.coreapi.AutoSchema',
 }
 
+# 网站的基本信息配置优先读取数据库配置  如果数据库没有数据 则读取此配置(数据库站点信息缓存2分钟)
+SITE_NAME = 'CharmCode'  # 站点名称
+SITE_YEAR = "2020"  # 站点年份
+SITE_META_KEYWORDS = 'charmcode.com,代码的魅力,web前端,Python后端,小程序,安卓逆向,Python爬虫,渗透测试'  # 站点关键词
+SITE_META_DESCRIPTION = "领略代码的魅力,分享web前端,html5,css3,Python后端代码分享,了解认知前沿技术"  # 站点描述
+SITE_TITLE = 'Just For Fun'  # 博客标题
+SITE_TYPE_CHINESE = '向着未来而生'  # 打字效果 中文内容
+SITE_TYPE_ENGLISH = 'Being toward future'  # 打字效果 英文内容
+SITE_HOME_TITLE = "CharmCode.cn"  # 站点标题
+SITE_SOURCE = "charmcode.cn"  # 站点来源
+SITE_MAIL = 'wg_python@163.com'  # 我的邮箱
+SITE_DOMAIN_URL = "https://www.charmcode.cn"  # 域名地址
+SITE_AVATAR = "https://image.3001.net/images/20200504/1588558613_5eaf7b159c8e9.jpeg"  # 关于页面头像
+ABOUT_NAME = "王小右"  # about 页面名称
+ABOUT_DESC = "about页面简介"  # about页面简介
+
 SIMPLEUI_LOGIN_PARTICLES = False
 SIMPLEUI_ANALYSIS = False
 SIMPLEUI_STATIC_OFFLINE = True
@@ -141,6 +158,9 @@ SIMPLEUI_LOADING = False
 SIMPLEUI_LOGO = 'https://image.3001.net/images/20200504/1588558613_5eaf7b159c8e9.jpeg'  # 默认后台后台想
 SIMPLEUI_DEFAULT_THEME = 'admin.lte.css'
 SIMPLEUI_HOME_INFO = True  # simple log
+
+# MarkDown
+X_FRAME_OPTIONS = 'SAMEORIGIN'
 
 if ENVIRONMENT == 'production':
     DEBUG = False
