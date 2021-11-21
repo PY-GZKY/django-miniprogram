@@ -1,7 +1,7 @@
 from django.contrib.auth.models import User
 from rest_framework import serializers
 
-from snippets.models import Snippet, Entitie, Site
+from snippets.models import Snippet, Entitie, Site, BookInfo
 
 
 class SiteSerializer(serializers.HyperlinkedModelSerializer):
@@ -9,6 +9,12 @@ class SiteSerializer(serializers.HyperlinkedModelSerializer):
         model = Site
         fields = ('site_name', 'site_year', 'site_title', 'type_chinese', 'type_english', 'home_title',
                   'my_mail', 'site_keywords', 'site_desc', 'domain_url', 'site_avatar', 'about_name', 'about_desc')
+
+
+class BookInfoSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = BookInfo
+        fields = '__all__'
 
 
 class SnippetSerializer(serializers.HyperlinkedModelSerializer):
