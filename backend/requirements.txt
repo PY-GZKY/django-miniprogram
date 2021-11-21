@@ -10,3 +10,4 @@ whitenoise==5.0.1
 PyYAML==5.4
 django-simpleui
 django_import_export
+django-debug-toolbar

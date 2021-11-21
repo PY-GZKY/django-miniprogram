@@ -71,7 +71,6 @@ class BookInfo(models.Model):
     def __str__(self):
         return self.btitle
 
-    # 元类信息 : 修改表名
     class Meta:
         verbose_name = '图书'
         verbose_name_plural = verbose_name

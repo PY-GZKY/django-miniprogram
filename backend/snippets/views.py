@@ -4,11 +4,33 @@ from rest_framework import renderers
 from rest_framework.decorators import action
 from rest_framework.response import Response
 
+from django_mini import settings
 from snippets.models import Snippet, Entitie
 from snippets.permissions import IsOwnerOrReadOnly
 from snippets.serializers import SnippetSerializer, UserSerializer, EntitieSerializer
 from .models import BookInfo
 from .serializers import BookInfoSerializer
+
+
+def global_setting(request):
+    """
+    将settings里面的变量 注册为全局变量
+    """
+    return {
+        'SITE_NAME': settings.SITE_NAME,
+        'SITE_YEAR': settings.SITE_YEAR,
+        'SITE_META_DESCRIPTION': settings.SITE_META_DESCRIPTION,
+        'SITE_META_KEYWORDS': settings.SITE_META_KEYWORDS,
+        'SITE_HOME_TITLE': settings.SITE_HOME_TITLE,
+        'SITE_MAIL': settings.SITE_MAIL,
+        'SITE_TITLE': settings.SITE_TITLE,
+        'SITE_TYPE_CHINESE': settings.SITE_TYPE_CHINESE,
+        'SITE_TYPE_ENGLISH': settings.SITE_TYPE_ENGLISH,
+        'SITE_DOMAIN_URL': settings.SITE_DOMAIN_URL,
+        'SITE_AVATAR': settings.SITE_AVATAR,
+        'ABOUT_NAME': settings.ABOUT_NAME,
+        'ABOUT_DESC': settings.ABOUT_DESC
+    }
 
 
 # class BookListAPIView(generics.ListCreateAPIView):
