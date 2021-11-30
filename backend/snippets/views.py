@@ -1,15 +1,19 @@
+import json
+
 from django.contrib.auth.models import User
-from rest_framework import permissions, viewsets, generics, mixins
+from django.http import HttpResponse
+from rest_framework import permissions, viewsets, generics, mixins, status
 from rest_framework import renderers
 from rest_framework.decorators import action
 from rest_framework.response import Response
-
-from django_mini import settings
+from rest_framework.views import APIView
 from snippets.models import Snippet, Entitie
 from snippets.permissions import IsOwnerOrReadOnly
 from snippets.serializers import SnippetSerializer, UserSerializer, EntitieSerializer
 from .models import BookInfo
 from .serializers import BookInfoSerializer
+from django_mini import settings
+from .utils import serialize_sqlalchemy_obj
 
 
 def global_setting(request):
@@ -51,18 +55,20 @@ class BookListAPIView(mixins.ListModelMixin,
         return self.create(request, *args, **kwargs)
 
 
-# class BookListAPIView(APIView):
-#     def get(self, request, format=None):
-#         snippets = BookInfo.objects.all()
-#         serializer = BookInfoSerializer(snippets, many=True)
-#         return Response(serializer.data)
-#
-#     def post(self, request, format=None):
-#         serializer = BookInfoSerializer(data=request.data)
-#         if serializer.is_valid():
-#             serializer.save()
-#             return Response(serializer.data, status=status.HTTP_201_CREATED)
-#         return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+class ScenicListAPIView(APIView):
+    # queryset = settings.mongo_client["chao"]["museum_scenic"].find({}).limit(30)
+    def get(self, request, format=None):
+        scenic_list = settings.mongo_client.chao.museum_scenic.find({}).limit(30)
+        items = [item for item in scenic_list]
+        items = {"items":serialize_sqlalchemy_obj(items)}
+        return Response(items,status=status.HTTP_200_OK)
+
+    # def post(self, request, format=None):
+    #     serializer = BookInfoSerializer(data=request.data)
+    #     if serializer.is_valid():
+    #         serializer.save()
+    #         return Response(serializer.data, status=status.HTTP_201_CREATED)
+    #     return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
 
 
 class SnippetViewSet(viewsets.ModelViewSet):

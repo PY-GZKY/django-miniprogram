@@ -12,14 +12,21 @@ https://stackoverflow.com/questions/55657752/django-installing-mysqlclient-error
 # Database
 # https://docs.djangoproject.com/en/2.2/ref/settings/#databases
 import os
+from dotenv import load_dotenv, find_dotenv
+load_dotenv(verbose=True)
+
 
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
         'NAME': 'django_miniprogram',
-        'HOST': os.getenv('MYSQL_HOST', None),
-        'PORT': os.getenv('MYSQL_PORT', 3306),
+        'HOST': os.getenv('MYSQL_HOST', '127.0.0.1'),
+        'PORT': int(os.getenv('MYSQL_PORT', 3306)),
         'USER': os.getenv('MYSQL_USERNAME', None),
-        'PASSWORD': os.getenv('MYSQL_PASSWORD', None),
+        'PASSWORD': os.getenv('MYSQL_PASSWORD', None)
     },
+
+
 }
+
+
