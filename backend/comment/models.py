@@ -18,7 +18,7 @@ class Comment(models.Model):
         Article,
         on_delete=models.CASCADE,
         related_name='comments',
-        verbose_name='评论文章',
+        # verbose_name='评论文章',
         help_text='评论文章'
 
     )
@@ -39,7 +39,7 @@ class Comment(models.Model):
     class Meta:
         ordering = ['-created']
         verbose_name = '评论'
-        verbose_name_plural = verbose_name
+        # verbose_name_plural = verbose_name
 
 
     def __str__(self):

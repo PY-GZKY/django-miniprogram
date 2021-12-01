@@ -150,7 +150,10 @@ class ArticleSerializer(ArticleBaseSerializer):
     class Meta:
         model = Article
         fields = '__all__'
-        extra_kwargs = {'body': {'write_only': True}}
+        extra_kwargs = {
+            'body': {'write_only': True},
+        }
+
 
 
 class ArticleDetailSerializer(ArticleBaseSerializer):

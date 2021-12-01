@@ -8,7 +8,7 @@ from markdown import Markdown
 
 class Tag(models.Model):
     """景区标签"""
-    text = models.CharField(max_length=30)
+    text = models.CharField(max_length=30,help_text = '文章标签')
 
     class Meta:
         ordering = ['-id']
@@ -39,7 +39,8 @@ class Article(models.Model):
         User,
         null=True,
         on_delete=models.CASCADE,
-        related_name='articles'
+        related_name='articles',
+        help_text='文章作者'
     )
     # 分类
     category = models.ForeignKey(
@@ -47,13 +48,16 @@ class Article(models.Model):
         null=True,
         blank=True,
         on_delete=models.SET_NULL,
-        related_name='articles'
+        related_name='articles',
+        help_text='文章分类'
     )
     # 标签
     tags = models.ManyToManyField(
         Tag,
         blank=True,
-        related_name='articles'
+        related_name='articles',
+        verbose_name='文章标签',
+        help_text='文章标签'
     )
     # 标题图
     avatar = models.ForeignKey(
@@ -61,14 +65,15 @@ class Article(models.Model):
         null=True,
         blank=True,
         on_delete=models.SET_NULL,
-        related_name='article'
+        related_name='article',
+        help_text='文章封面'
     )
     # 标题
-    title = models.CharField(max_length=100)
+    title = models.CharField(max_length=100, help_text='文章标题')
     # 正文
-    body = models.TextField()
+    body = models.TextField(help_text='文章正文')
     # 创建时间
-    created = models.DateTimeField(default=timezone.now)
+    created = models.DateTimeField(default=timezone.now, help_text='创建时间')
     # 更新时间
     updated = models.DateTimeField(auto_now=True)
 
