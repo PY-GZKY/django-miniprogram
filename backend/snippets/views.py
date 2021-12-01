@@ -73,10 +73,6 @@ class ScenicListAPIView(APIView):
 
 class SnippetViewSet(viewsets.ModelViewSet):
     """
-    This viewset automatically provides `list`, `create`, `retrieve`,
-    `update` and `destroy` actions.
-
-    Additionally we also provide an extra `highlight` action.
     """
     queryset = Snippet.objects.all()
     serializer_class = SnippetSerializer
@@ -95,7 +91,7 @@ class SnippetViewSet(viewsets.ModelViewSet):
 
 class UserViewSet(viewsets.ReadOnlyModelViewSet):
     """
-    This viewset automatically provides `list` and `detail` actions.
+    用户视图
     """
     queryset = User.objects.all()
     serializer_class = UserSerializer
@@ -103,7 +99,6 @@ class UserViewSet(viewsets.ReadOnlyModelViewSet):
 
 class EntitieViewSet(viewsets.ReadOnlyModelViewSet):
     """
-    This viewset automatically provides `list` and `detail` actions.
     """
     queryset = Entitie.objects.all()
     serializer_class = EntitieSerializer

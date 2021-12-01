@@ -33,6 +33,23 @@ python manage.py runserver 127.0.0.1:8000
 ```shell
 
 ```
+
+### Django 命令
+```shell
+django-admin startproject sitename
+
+python manage.py runserver 0.0.0.0
+
+python manage.py startapp appname
+
+python manage.py syncdb
+
+python manage.py makemigrations
+
+python manage.py migrate
+
+python manage.py createsuperuser
+```
 ## License
 
 [MIT]()
