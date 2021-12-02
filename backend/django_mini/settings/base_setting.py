@@ -75,7 +75,7 @@ TEMPLATES = [
                 'django.template.context_processors.request',
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
-                'snippets.views.global_setting',   # 获取模版全局配置
+                'snippets.views.global_setting',  # 获取模版全局配置
             ],
         },
     },
@@ -139,7 +139,7 @@ SIMPLE_JWT = {
     'REFRESH_TOKEN_LIFETIME': timedelta(days=1),
 }
 
-MEDIA_URL =  '/media/'
+MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 
 # 网站的基本信息配置优先读取数据库配置  如果数据库没有数据 则读取此配置(数据库站点信息缓存2分钟)

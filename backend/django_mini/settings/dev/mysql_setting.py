@@ -13,8 +13,10 @@ https://stackoverflow.com/questions/55657752/django-installing-mysqlclient-error
 # https://docs.djangoproject.com/en/2.2/ref/settings/#databases
 import os
 from dotenv import load_dotenv, find_dotenv
+
 load_dotenv(verbose=True)
 
+from mongoengine import connect
 
 DATABASES = {
     'default': {
@@ -24,9 +26,7 @@ DATABASES = {
         'PORT': int(os.getenv('MYSQL_PORT', 3306)),
         'USER': os.getenv('MYSQL_USERNAME', None),
         'PASSWORD': os.getenv('MYSQL_PASSWORD', None)
-    },
-
-
+    }
 }
 
 

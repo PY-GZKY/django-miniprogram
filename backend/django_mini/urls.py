@@ -16,9 +16,7 @@ from rest_framework_simplejwt.views import (
 
 from user_info.views import UserViewSet
 
-
 router = DefaultRouter()
-
 router.register(r'user', UserViewSet)
 
 urlpatterns = [
