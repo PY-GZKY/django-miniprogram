@@ -14,6 +14,6 @@ router.register(r'entities', views.EntitieViewSet)
 urlpatterns = [
     url(r'^', include(router.urls)),
     url(r'^books/$', views.BookListAPIView.as_view()),
-    url(r'^scenics/$', views.ScenicListAPIView.as_view()),
+    # url(r'^scenics/$', views.ScenicListAPIView.as_view()),
 
 ]

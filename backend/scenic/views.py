@@ -1,27 +1,44 @@
-from rest_framework.decorators import api_view
-from rest_framework.response import Response
-from scenic.models import Article
-# from article.serializers import ArticleListSerializer
-from rest_framework.views import APIView
-from django.http import Http404
-# from article.serializers import ArticleDetailSerializer
-from rest_framework import status
-from rest_framework import mixins
-from rest_framework import generics
-# from rest_framework.permissions import IsAdminUser
-from scenic.permissions import IsAdminUserOrReadOnly
-from rest_framework import viewsets
-from scenic.serializers import ArticleSerializer
 # from django_filters.rest_framework import DjangoFilterBackend
 from rest_framework import filters
-from scenic.models import Category
-from scenic.serializers import CategorySerializer, CategoryDetailSerializer
-from scenic.models import Tag
-from scenic.serializers import TagSerializer
-from scenic.serializers import ArticleDetailSerializer
+# from article.serializers import ArticleDetailSerializer
+from rest_framework import status
+from rest_framework import viewsets
+from rest_framework.response import Response
+# from article.serializers import ArticleListSerializer
+from rest_framework.views import APIView
 
+from django_mini import settings
+from scenic.models import Article
 from scenic.models import Avatar
+from scenic.models import Category
+from scenic.models import Tag
+# from rest_framework.permissions import IsAdminUser
+from scenic.permissions import IsAdminUserOrReadOnly
+from scenic.serializers import ArticleDetailSerializer
+from scenic.serializers import ArticleSerializer
 from scenic.serializers import AvatarSerializer
+from scenic.serializers import CategorySerializer, CategoryDetailSerializer
+from scenic.serializers import TagSerializer
+from snippets.utils import serialize_sqlalchemy_obj
+
+
+class ScenicListAPIView(APIView):
+    """
+    ScenicListAPIView
+    """
+    def get(self, request, format=None):
+        scenic_list = settings.mongo_client.chao.museum_scenic.find({}).limit(30)
+        items = [item for item in scenic_list]
+        items = {"items": serialize_sqlalchemy_obj(items)}
+        # print(items)
+        return Response(items, status=status.HTTP_200_OK)
+
+    # def post(self, request, format=None):
+    #     serializer = BookInfoSerializer(data=request.data)
+    #     if serializer.is_valid():
+    #         serializer.save()
+    #         return Response(serializer.data, status=status.HTTP_201_CREATED)
+    #     return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
 
 
 class AvatarViewSet(viewsets.ModelViewSet):

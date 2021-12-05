@@ -16,17 +16,17 @@ from dotenv import load_dotenv, find_dotenv
 
 load_dotenv(verbose=True)
 
-from mongoengine import connect
 
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
         'NAME': 'django_miniprogram',
-        'HOST': os.getenv('MYSQL_HOST', '127.0.0.1'),
-        'PORT': int(os.getenv('MYSQL_PORT', 3306)),
-        'USER': os.getenv('MYSQL_USERNAME', None),
-        'PASSWORD': os.getenv('MYSQL_PASSWORD', None)
+        'HOST': os.getenv('MYSQL_HOST_', '127.0.0.1'),
+        'PORT': int(os.getenv('MYSQL_PORT_', 3306)),
+        'USER': os.getenv('MYSQL_USERNAME_', None),
+        'PASSWORD': os.getenv('MYSQL_PASSWORD_', None)
     }
 }
 
 
+# print(os.getenv('MYSQL_HOST', '127.0.0.1'))

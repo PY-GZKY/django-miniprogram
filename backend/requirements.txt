@@ -11,3 +11,4 @@ PyYAML==5.4
 django-simpleui
 django_import_export
 django-debug-toolbar
+djangorestframework_simplejwt

@@ -1,18 +1,17 @@
-import json
-
 from django.contrib.auth.models import User
-from django.http import HttpResponse
 from rest_framework import permissions, viewsets, generics, mixins, status
 from rest_framework import renderers
 from rest_framework.decorators import action
 from rest_framework.response import Response
 from rest_framework.views import APIView
+
+from django_mini import settings
+from django_mini.settings import mongo_client
 from snippets.models import Snippet, Entitie
 from snippets.permissions import IsOwnerOrReadOnly
 from snippets.serializers import SnippetSerializer, UserSerializer, EntitieSerializer
 from .models import BookInfo
 from .serializers import BookInfoSerializer
-from django_mini import settings
 from .utils import serialize_sqlalchemy_obj
 
 
@@ -56,12 +55,13 @@ class BookListAPIView(mixins.ListModelMixin,
 
 
 class ScenicListAPIView(APIView):
-    # queryset = settings.mongo_client["chao"]["museum_scenic"].find({}).limit(30)
+
     def get(self, request, format=None):
-        scenic_list = settings.mongo_client.chao.museum_scenic.find({}).limit(30)
+        scenic_list = mongo_client["chao"]["museum_scenic"].find({}).limit(30)
+        print(len(list(scenic_list)))
         items = [item for item in scenic_list]
-        items = {"items":serialize_sqlalchemy_obj(items)}
-        return Response(items,status=status.HTTP_200_OK)
+        items = {"items": serialize_sqlalchemy_obj(items)}
+        return Response(items, status=status.HTTP_200_OK)
 
     # def post(self, request, format=None):
     #     serializer = BookInfoSerializer(data=request.data)

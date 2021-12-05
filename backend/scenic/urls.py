@@ -9,7 +9,7 @@ router.register(r'category', views.CategoryViewSet)
 router.register(r'tag', views.TagViewSet)
 router.register(r'avatar', views.AvatarViewSet)
 
-
 urlpatterns = [
-    url(r'^scenic/', include(router.urls))
+    url(r'^scenic/', include(router.urls)),
+    url(r'^scenic_list/$', views.ScenicListAPIView.as_view()),
 ]
