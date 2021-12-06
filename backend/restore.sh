@@ -8,6 +8,5 @@ python manage.py loaddata snippets/fixtures/users.json
 
 echo "==> Loading snippets fixtures..."
 python manage.py loaddata snippets/fixtures/snippets.json
-python manage.py loaddata snippets/fixtures/entities.json
 
 echo "==> Done!"

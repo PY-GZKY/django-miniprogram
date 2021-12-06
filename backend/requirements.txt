@@ -12,3 +12,7 @@ django-simpleui
 django_import_export
 django-debug-toolbar
 djangorestframework_simplejwt
+pymysql
+pydantic
+python-dotenv
+pymongo
