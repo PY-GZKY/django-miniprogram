@@ -27,7 +27,7 @@ class ScenicListAPIView(APIView):
     ScenicListAPIView
     """
     def get(self, request, format=None):
-        scenic_list = settings.mongo_client.chao.museum_scenic.find({}).limit(30)
+        scenic_list = settings.mongo_client.chao.museum_scenic.find({"data_source":"携程"}).limit(8)
         items = [item for item in scenic_list]
         items = {"items": serialize_sqlalchemy_obj(items)}
         # print(items)

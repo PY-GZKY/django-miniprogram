@@ -21,8 +21,8 @@ router.register(r'user', UserViewSet)
 
 urlpatterns = [
     url(r'^', include('snippets.urls')),
-    url(r'^', include('comment.urls'),name="comment"),
-    url(r'^', include('scenic.urls'),name="scenic"),
+    url(r'^', include('comment.urls'), name="comment"),
+    url(r'^', include('scenic.urls'), name="scenic"),
     url(r'^', include('user_info.urls'),name="user_info"),
 
     url(r'^admin/', admin.site.urls),
