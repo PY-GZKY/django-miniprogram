@@ -14,7 +14,7 @@ from rest_framework_simplejwt.views import (
     TokenRefreshView,
 )
 
-from user_info.views import UserViewSet
+from user_info.views import UserViewSet, MyTokenObtainPairView
 
 router = DefaultRouter()
 router.register(r'user', UserViewSet)
@@ -31,6 +31,7 @@ urlpatterns = [
     url(r'^schema/$', schema_view),
     url(r'^docs/', include_docs_urls(title=API_TITLE, description=API_DESCRIPTION)),
 
-    path('api/token/', TokenObtainPairView.as_view(), name='token_obtain_pair'),
+    # path('api/token/', TokenObtainPairView.as_view(), name='token_obtain_pair'),
+    path('api/token/', MyTokenObtainPairView.as_view(), name='token_obtain_pair'),
     path('api/token/refresh/', TokenRefreshView.as_view(), name='token_refresh'),
 ]
