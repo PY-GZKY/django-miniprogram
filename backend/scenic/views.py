@@ -40,6 +40,43 @@ class ScenicListAPIView(APIView):
     #         return Response(serializer.data, status=status.HTTP_201_CREATED)
     #     return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
 
+class BannerInfoView(APIView):
+    """
+    BannerInfoView
+    """
+
+    def get(self, request, format=None):
+        items = {"banners": [
+            "http://img4.youxiake.com/ps/2021/11/one/20eb546d5b21e3486b898feac1ee2b1a.jpg",
+            "http://img4.youxiake.com/ps/2021/11/one/e4427d9289e73f99acd2b4e4972c6d94.jpg",
+            "http://img4.youxiake.com/ps/2021/11/one/6f300ae31999c9034ae1d70ea81da442.jpg",
+            "http://img4.youxiake.com/ps/2021/11/one/1cb5974d4f3d216c810122097ef6b804.jpg",
+            "http://img4.youxiake.com/ps/2021/11/one/20eb546d5b21e3486b898feac1ee2b1a.jpg",
+            "http://img4.youxiake.com/ps/2021/11/one/e4427d9289e73f99acd2b4e4972c6d94.jpg",
+            "http://img4.youxiake.com/ps/2021/11/one/6f300ae31999c9034ae1d70ea81da442.jpg",
+            "http://img4.youxiake.com/ps/2021/11/one/1cb5974d4f3d216c810122097ef6b804.jpg"
+        ]}
+        return Response(items, status=status.HTTP_200_OK)
+
+class HotInfoView(APIView):
+    """
+    HotInfoView
+    """
+
+    def get(self, request, format=None):
+        items = {"hot": [
+            "http://img4.youxiake.com/ps/2021/11/one/20eb546d5b21e3486b898feac1ee2b1a.jpg",
+            "http://img4.youxiake.com/ps/2021/11/one/e4427d9289e73f99acd2b4e4972c6d94.jpg",
+            "http://img4.youxiake.com/ps/2021/11/one/6f300ae31999c9034ae1d70ea81da442.jpg",
+            "http://img4.youxiake.com/ps/2021/11/one/1cb5974d4f3d216c810122097ef6b804.jpg",
+            "http://img4.youxiake.com/ps/2021/11/one/20eb546d5b21e3486b898feac1ee2b1a.jpg",
+            "http://img4.youxiake.com/ps/2021/11/one/e4427d9289e73f99acd2b4e4972c6d94.jpg",
+            "http://img4.youxiake.com/ps/2021/11/one/6f300ae31999c9034ae1d70ea81da442.jpg",
+            "http://img4.youxiake.com/ps/2021/11/one/1cb5974d4f3d216c810122097ef6b804.jpg"
+        ]}
+        return Response(items, status=status.HTTP_200_OK)
+
+
 
 class AvatarViewSet(viewsets.ModelViewSet):
     """

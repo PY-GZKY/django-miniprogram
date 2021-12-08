@@ -12,4 +12,6 @@ router.register(r'avatar', views.AvatarViewSet)
 urlpatterns = [
     url(r'^scenic/', include(router.urls)),
     url(r'^scenic_list/$', views.ScenicListAPIView.as_view()),
+    url(r'^banner_info/$', views.BannerInfoView.as_view()),
+    url(r'^hot_info/$', views.HotInfoView.as_view()),
 ]
