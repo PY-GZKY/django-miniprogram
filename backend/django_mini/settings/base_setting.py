@@ -47,6 +47,7 @@ INSTALLED_APPS = [
     'corsheaders',
     'rest_framework',
     'snippets',
+    'story',
     'scenic',
     'user_info',
     'comment'
@@ -156,8 +157,8 @@ USE_TZ = True  # 获取数据库本地时间
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/1.11/howto/static-files/
 
-STATIC_URL = '/booktest/'
-STATIC_ROOT = os.path.join(BASE_DIR, '../../booktest')
+STATIC_URL = '/static/'
+# STATIC_ROOT = os.path.join(BASE_DIR, '/static')
 
 # Django REST Framework
 REST_FRAMEWORK = {
@@ -174,8 +175,9 @@ SIMPLE_JWT = {
     'REFRESH_TOKEN_LIFETIME': timedelta(days=1),
 }
 
-MEDIA_URL = '/media/'
-MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+MEDIA_URL = 'media/'
+print(BASE_DIR)
+MEDIA_ROOT = os.path.join(BASE_DIR, '../media')
 
 # 网站的基本信息配置优先读取数据库配置  如果数据库没有数据 则读取此配置(数据库站点信息缓存2分钟)
 SITE_NAME = 'CharmCode'  # 站点名称
