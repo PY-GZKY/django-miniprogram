@@ -25,12 +25,12 @@ class SlidesAdmin(ImportExportModelAdmin):
 
 @admin.register(Vehicles)
 class VehiclesAdmin(ImportExportModelAdmin):
-    list_display = ('header', 'sub_header', 'description', 'image', 'created')
+    list_display = ('id', 'header', 'sub_header', 'description', 'image', 'created')
     list_per_page = 5
 
     fieldsets = (
         ('header', {
-            'fields': ('header', 'sub_header', 'description', 'image', 'created')
+            'fields': ('id', 'header', 'sub_header', 'description', 'image', 'created')
         }),
     )
 

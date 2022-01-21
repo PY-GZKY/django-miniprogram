@@ -6,6 +6,9 @@ import decimal
 import datetime
 from typing import Union
 
+from django.db.models.fields.files import ImageFieldFile
+
+
 def _alchemy_encoder(obj):
     """
     处理序列化中的时间和小数
@@ -15,6 +18,8 @@ def _alchemy_encoder(obj):
     elif isinstance(obj, decimal.Decimal):
         return float(obj)
     elif isinstance(obj, bson.ObjectId):
+        return str(obj)
+    elif isinstance(obj, ImageFieldFile):
         return str(obj)
 
 

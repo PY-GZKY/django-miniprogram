@@ -1,5 +1,5 @@
 # from django_filters.rest_framework import DjangoFilterBackend
-from rest_framework import filters
+from rest_framework import filters, status
 # from article.serializers import ArticleDetailSerializer
 from rest_framework import viewsets
 from rest_framework.response import Response
@@ -39,6 +39,15 @@ class SlidesViewSet(viewsets.ModelViewSet):
 class VehiclesViewSet(viewsets.ModelViewSet):
     queryset = Vehicles.objects.all()
     serializer_class = VehiclesSerializer
+
+# class VehiclesViewSet(APIView):
+#     # queryset = Vehicles.objects.all()
+#     serializer_class = VehiclesSerializer
+#
+#     def get(self, request, format=None):
+#         vehicles_ = Vehicles.objects.all()
+#         vehicles_ = [model_to_dict(item) for item in vehicles_]
+#         return Response(serialize_sqlalchemy_obj(vehicles_), status=status.HTTP_200_OK)
 
 
 class VehicleDetailViewSet(viewsets.ModelViewSet):

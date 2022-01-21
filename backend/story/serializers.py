@@ -1,5 +1,8 @@
-from rest_framework import serializers
+from django.forms import model_to_dict
+from rest_framework import serializers, status
+from rest_framework.response import Response
 
+from snippets.utils import serialize_sqlalchemy_obj
 from story.models import Slides, VehicleDetail, Vehicles, Stories
 
 
@@ -13,6 +16,7 @@ class VehicleDetailSerializer(serializers.ModelSerializer):
     class Meta:
         model = VehicleDetail
         fields = ('id', 'header', 'description', 'image', 'created')
+
 
 
 class VehiclesSerializer(serializers.ModelSerializer):

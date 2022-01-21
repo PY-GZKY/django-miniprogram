@@ -27,7 +27,7 @@ class Slides(models.Model):
 
 class Vehicles(models.Model):
     """Vehicles model"""
-    id = models.IntegerField(primary_key=True)
+    id = models.IntegerField(primary_key=True, auto_created=True)
     # header
     header = models.CharField(max_length=100, help_text='header')
     # sub_header
