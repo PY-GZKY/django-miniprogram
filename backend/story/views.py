@@ -5,16 +5,16 @@ from rest_framework import viewsets
 from rest_framework.response import Response
 from rest_framework.views import APIView
 
-from story.models import Slides, Vehicles, VehicleDetail
+from story.models import Slides, Vehicles, VehicleDetail, Stories
 # from rest_framework.permissions import IsAdminUser
 from story.permissions import IsAdminUserOrReadOnly
-from story.serializers import SlidesSerializer, VehiclesSerializer, VehicleDetailSerializer
+from story.serializers import SlidesSerializer, VehiclesSerializer, VehicleDetailSerializer, StoriesSerializer
 
 
 # from article.serializers import ArticleListSerializer
 
 
-class StroyViewSet(viewsets.ModelViewSet):
+class SlidesViewSet(viewsets.ModelViewSet):
     """故事视图集"""
     queryset = Slides.objects.all()
     serializer_class = SlidesSerializer
@@ -44,3 +44,8 @@ class VehiclesViewSet(viewsets.ModelViewSet):
 class VehicleDetailViewSet(viewsets.ModelViewSet):
     queryset = VehicleDetail.objects.all()
     serializer_class = VehicleDetailSerializer
+
+
+class StoriesViewSet(viewsets.ModelViewSet):
+    queryset = Stories.objects.all()
+    serializer_class = StoriesSerializer

@@ -175,8 +175,8 @@ SIMPLE_JWT = {
     'REFRESH_TOKEN_LIFETIME': timedelta(days=1),
 }
 
-MEDIA_URL = 'media/'
-print(BASE_DIR)
+MEDIA_URL = '/media/'
+# print(BASE_DIR)
 MEDIA_ROOT = os.path.join(BASE_DIR, '../media')
 
 # 网站的基本信息配置优先读取数据库配置  如果数据库没有数据 则读取此配置(数据库站点信息缓存2分钟)
