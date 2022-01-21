@@ -206,6 +206,7 @@ SIMPLEUI_HOME_INFO = True  # simple log
 # MarkDown
 X_FRAME_OPTIONS = 'SAMEORIGIN'
 
+
 # if ENVIRONMENT == 'production':
 #     DEBUG = False
 #     SECRET_KEY = os.getenv('SECRET_KEY')

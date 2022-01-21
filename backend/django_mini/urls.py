@@ -21,19 +21,20 @@ router = DefaultRouter()
 router.register(r'user', UserViewSet)
 
 urlpatterns = [
-    url(r'^', include('snippets.urls')),
-    url(r'^', include('comment.urls'), name="comment"),
-    url(r'^', include('scenic.urls'), name="scenic"),
-    url(r'^', include('user_info.urls'), name="user_info"),
+    # url(r'^', include('snippets.urls')),
+    # url(r'^', include('comment.urls'), name="comment"),
+    # url(r'^', include('scenic.urls'), name="scenic"),
+    # url(r'^', include('user_info.urls'), name="user_info"),
     url(r'^', include('story.urls'), name="story"),
 
     url(r'^admin/', admin.site.urls),
-    url(r'^api-auth/', include('rest_framework.urls', namespace='rest_framework')),
+    # url(r'^api-auth/', include('rest_framework.urls', namespace='rest_framework')),
 
-    url(r'^schema/$', schema_view),
+    # url(r'^schema/$', schema_view),
     url(r'^docs/', include_docs_urls(title=API_TITLE, description=API_DESCRIPTION)),
 
     # path('api/token/', TokenObtainPairView.as_view(), name='token_obtain_pair'),
-    path('api/token/', MyTokenObtainPairView.as_view(), name='token_obtain_pair'),
-    path('api/token/refresh/', TokenRefreshView.as_view(), name='token_refresh'),
+
+    # path('api/token/', MyTokenObtainPairView.as_view(), name='token_obtain_pair'),
+    # path('api/token/refresh/', TokenRefreshView.as_view(), name='token_refresh'),
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

@@ -39,6 +39,7 @@ class SlidesViewSet(viewsets.ModelViewSet):
 class VehiclesViewSet(viewsets.ModelViewSet):
     queryset = Vehicles.objects.all()
     serializer_class = VehiclesSerializer
+    permission_classes = [IsAdminUserOrReadOnly]
 
 # class VehiclesViewSet(APIView):
 #     # queryset = Vehicles.objects.all()
@@ -53,8 +54,10 @@ class VehiclesViewSet(viewsets.ModelViewSet):
 class VehicleDetailViewSet(viewsets.ModelViewSet):
     queryset = VehicleDetail.objects.all()
     serializer_class = VehicleDetailSerializer
+    permission_classes = [IsAdminUserOrReadOnly]
 
 
 class StoriesViewSet(viewsets.ModelViewSet):
     queryset = Stories.objects.all()
     serializer_class = StoriesSerializer
+    permission_classes = [IsAdminUserOrReadOnly]
