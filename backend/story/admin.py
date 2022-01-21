@@ -8,12 +8,12 @@ from story.models import Slides, Vehicles, VehicleDetail, Stories
 
 @admin.register(Slides)
 class SlidesAdmin(ImportExportModelAdmin):
-    list_display = ('id', 'header', 'sub_header', 'description', 'image', 'created')
+    list_display = ('header', 'sub_header', 'description', 'image', 'created')
     list_per_page = 5
 
     fieldsets = (
         ('header', {
-            'fields': ('id', 'header', 'sub_header', 'description', 'image', 'created')
+            'fields': ('header', 'sub_header', 'description', 'image', 'created')
         }),
     )
 
@@ -25,12 +25,12 @@ class SlidesAdmin(ImportExportModelAdmin):
 
 @admin.register(Vehicles)
 class VehiclesAdmin(ImportExportModelAdmin):
-    list_display = ('id', 'header', 'sub_header', 'description', 'image', 'created')
+    list_display = ('header', 'sub_header', 'description', 'image', 'created')
     list_per_page = 5
 
     fieldsets = (
         ('header', {
-            'fields': ('id', 'header', 'sub_header', 'description', 'image', 'created')
+            'fields': ('header', 'sub_header', 'description', 'image', 'created')
         }),
     )
 
@@ -42,12 +42,12 @@ class VehiclesAdmin(ImportExportModelAdmin):
 
 @admin.register(VehicleDetail)
 class VehicleDetailAdmin(ImportExportModelAdmin):
-    list_display = ('id', 'vehicles', 'header', 'description', 'image', 'created')
+    list_display = ('vehicles', 'header', 'description', 'image', 'created')
     list_per_page = 5
 
     fieldsets = (
         ('header', {
-            'fields': ('id', 'vehicles', 'header', 'description', 'image', 'created')
+            'fields': ('vehicles', 'header', 'description', 'image', 'created')
         }),
     )
 
@@ -60,15 +60,14 @@ class VehicleDetailAdmin(ImportExportModelAdmin):
 @admin.register(Stories)
 class StoriesAdmin(ImportExportModelAdmin):
     list_display = (
-        'id', 'header', 'original_header', 'description', 'original_description', 'video', 'image', 'duration_raw',
+        'header', 'original_header', 'description', 'original_description', 'video', 'image',
         'duration', 'created')
     list_per_page = 5
 
     fieldsets = (
         ('header', {
             'fields': (
-                'id', 'header', 'original_header', 'description', 'original_description', 'video', 'image',
-                'duration_raw',
+                'header', 'original_header', 'description', 'original_description', 'video', 'image',
                 'duration', 'created')
         }),
     )

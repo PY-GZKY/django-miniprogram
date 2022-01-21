@@ -34,10 +34,10 @@ class StoriesSerializer(serializers.ModelSerializer):
     class Meta:
         model = Stories
         fields = (
-            'id', 'header', 'original_header', 'description', 'original_description', 'video', 'image', 'duration_raw',
+            'id', 'header', 'original_header', 'description', 'original_description', 'video', 'image',
             'duration', 'created', 'updated')
         read_only_fields = (
-            'id', 'header', 'original_header', 'description', 'original_description', 'video', 'image', 'duration_raw',
+            'id', 'header', 'original_header', 'description', 'original_description', 'video', 'image',
             'duration', 'created', 'updated')
 
     def create(self, validated_data):
