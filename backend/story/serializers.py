@@ -3,10 +3,15 @@ from rest_framework import serializers
 from story.models import Slides, VehicleDetail, Vehicles, Stories
 
 
-class SlidesSerializer(serializers.HyperlinkedModelSerializer):
+class SlidesSerializer(serializers.ModelSerializer):
+    image = serializers.SerializerMethodField()
     class Meta:
         model = Slides
         fields = ('id', 'header', 'sub_header', 'description', 'image', 'created')
+
+    def get_image(self, obj):
+        image_url = obj.image.url
+        return "https://127.0.0.1:8000/media/" + image_url
 
 
 class VehicleDetailSerializer(serializers.ModelSerializer):

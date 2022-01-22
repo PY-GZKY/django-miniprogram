@@ -179,6 +179,10 @@ MEDIA_URL = '/media/'
 # print(BASE_DIR)
 MEDIA_ROOT = os.path.join(BASE_DIR, '../media')
 
+SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')  # 设置请求协议为https
+
+
+
 # 网站的基本信息配置优先读取数据库配置  如果数据库没有数据 则读取此配置(数据库站点信息缓存2分钟)
 SITE_NAME = 'CharmCode'  # 站点名称
 SITE_YEAR = "2020"  # 站点年份
