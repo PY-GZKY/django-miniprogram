@@ -171,13 +171,15 @@ REST_FRAMEWORK = {
 }
 
 SIMPLE_JWT = {
-    'ACCESS_TOKEN_LIFETIME': timedelta(minutes=10),
+    'ACCESS_TOKEN_LIFETIME': timedelta(days=1),
     'REFRESH_TOKEN_LIFETIME': timedelta(days=1),
 }
 
 MEDIA_URL = '/media/'
 # print(BASE_DIR)
 MEDIA_ROOT = os.path.join(BASE_DIR, '../media')
+
+WEB_ROOT = "https://tplan.cc"
 
 SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')  # 设置请求协议为https
 

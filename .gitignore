@@ -5,6 +5,8 @@
 .*
 env
 node_modules/
+media/
+
 # Accept these files in the repository
 !.gitignore
 !.travis.yml
