@@ -55,10 +55,10 @@ class StoriesSerializer(serializers.ModelSerializer):
         model = Stories
         fields = (
             'id', 'header', 'original_header', 'description', 'original_description', 'video', 'image',
-            'duration', 'created', 'updated')
+            'duration', 'mp4', 'created', 'updated')
         read_only_fields = (
             'id', 'header', 'original_header', 'description', 'original_description', 'video', 'image',
-            'duration', 'created', 'updated')
+            'duration', 'mp4', 'created', 'updated')
 
     def get_image(self, obj):
         image_url = obj.image.url

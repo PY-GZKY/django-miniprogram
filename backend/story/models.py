@@ -88,13 +88,15 @@ class Stories(models.Model):
     # original_description
     original_description = models.CharField(max_length=100, help_text='original_description',verbose_name="原简介")
     # video
-    video =  models.FileField(upload_to='video/%Y/%m/%d', null=True, blank=True, verbose_name="视频")
+    video = models.FileField(upload_to='video/%Y/%m/%d', null=True, blank=True, verbose_name="视频")
     # image
     image = models.ImageField(upload_to='images/%Y/%m/%d', verbose_name='图片封面', null=True)
     # duration_raw
     # duration_raw = models.TextField(help_text='duration_raw',verbose_name="duration_raw")
     # duration
-    duration = models.TextField(help_text='duration', verbose_name="时长")
+    duration = models.TextField(help_text='duration', verbose_name="时长", null=True)
+    # 是否视频
+    mp4 = models.IntegerField(help_text='是否MP4', verbose_name="是否MP4",default=1)
     # 创建时间
     created = models.DateTimeField(default=timezone.now, help_text='创建时间', verbose_name="创建时间")
     # 更新时间

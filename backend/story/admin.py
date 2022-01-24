@@ -61,14 +61,14 @@ class VehicleDetailAdmin(ImportExportModelAdmin):
 class StoriesAdmin(ImportExportModelAdmin):
     list_display = (
         'id', 'header', 'original_header', 'description', 'original_description', 'video', 'image',
-        'duration', 'created')
+        'duration', 'mp4', 'created')
     list_per_page = 5
 
     fieldsets = (
         ('header', {
             'fields': (
                 'id', 'header', 'original_header', 'description', 'original_description', 'video', 'image',
-                'duration', 'created')
+                'duration', 'mp4', 'created')
         }),
     )
 
