@@ -5,10 +5,11 @@ from rest_framework import viewsets
 from rest_framework.response import Response
 from rest_framework.views import APIView
 
-from story.models import Slides, Vehicles, VehicleDetail, Stories
+from story.models import Slides, Vehicles, VehicleDetail, Stories, StorieDetail
 # from rest_framework.permissions import IsAdminUser
 from story.permissions import IsAdminUserOrReadOnly
-from story.serializers import SlidesSerializer, VehiclesSerializer, VehicleDetailSerializer, StoriesSerializer
+from story.serializers import SlidesSerializer, VehiclesSerializer, VehicleDetailSerializer, StoriesSerializer, \
+    StorieDetailSerializer
 
 
 # from article.serializers import ArticleListSerializer
@@ -60,4 +61,9 @@ class VehicleDetailViewSet(viewsets.ModelViewSet):
 class StoriesViewSet(viewsets.ModelViewSet):
     queryset = Stories.objects.all()
     serializer_class = StoriesSerializer
+    permission_classes = [IsAdminUserOrReadOnly]
+
+class StorieDetailViewSet(viewsets.ModelViewSet):
+    queryset = StorieDetail.objects.all()
+    serializer_class = StorieDetailSerializer
     permission_classes = [IsAdminUserOrReadOnly]

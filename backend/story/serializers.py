@@ -1,7 +1,7 @@
 from rest_framework import serializers
 
 from django_mini import settings
-from story.models import Slides, VehicleDetail, Vehicles, Stories
+from story.models import Slides, VehicleDetail, Vehicles, Stories, StorieDetail
 
 
 class SlidesSerializer(serializers.ModelSerializer):
@@ -47,29 +47,59 @@ class VehiclesSerializer(serializers.ModelSerializer):
     def update(self, instance, validated_data):
         pass
 
-
-class StoriesSerializer(serializers.ModelSerializer):
+class StorieDetailSerializer(serializers.ModelSerializer):
     image = serializers.SerializerMethodField()
-    video = serializers.SerializerMethodField()
+    stories = serializers.SerializerMethodField()
+    # description = serializers.SerializerMethodField()
+
     class Meta:
-        model = Stories
+        model = StorieDetail
         fields = (
-            'id', 'header', 'original_header', 'description', 'original_description', 'video', 'image',
-            'duration', 'mp4', 'created', 'updated')
+            'id', 'stories', 'header', 'image', 'created', 'updated')
         read_only_fields = (
-            'id', 'header', 'original_header', 'description', 'original_description', 'video', 'image',
-            'duration', 'mp4', 'created', 'updated')
+            'id', 'stories', 'header', 'image', 'created', 'updated')
 
     def get_image(self, obj):
         image_url = obj.image.url
         return settings.WEB_ROOT + image_url
 
-    def get_video(self, obj):
-        video_url = obj.video.url
-        return settings.WEB_ROOT + video_url
+    def get_stories(self, obj):
+        header = obj.stories.header
+        return header
+
+    # def get_description(self, obj):
+    #     description = obj.stories.description
+    #     return description
 
     def create(self, validated_data):
         pass
 
     def update(self, instance, validated_data):
         pass
+
+class StoriesSerializer(serializers.ModelSerializer):
+    image = serializers.SerializerMethodField()
+    stories = StorieDetailSerializer(many=True)
+
+    class Meta:
+        model = Stories
+        fields = (
+            'id', 'header', 'description', 'image', 'stories', 'created', 'updated')
+        read_only_fields = (
+            'id', 'header', 'description', 'image',  'stories', 'created', 'updated')
+
+    def get_image(self, obj):
+        image_url = obj.image.url
+        return settings.WEB_ROOT + image_url
+
+    # def get_storie_list(self, obj):
+    #     storie_list = obj.storie_detail_set.all()
+    #     return storie_list
+
+    def create(self, validated_data):
+        pass
+
+    def update(self, instance, validated_data):
+        pass
+
+
