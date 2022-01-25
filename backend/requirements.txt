@@ -18,3 +18,4 @@ pymysql
 pydantic
 python-dotenv
 pymongo
+django-sslserver
