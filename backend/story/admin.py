@@ -66,7 +66,7 @@ class StoriesAdmin(ImportExportModelAdmin):
     fieldsets = (
         ('header', {
             'fields': (
-                'id', 'header',  'description', 'image',  'images','created')
+                'id', 'header',  'description', 'image', 'created')
         }),
     )
 
